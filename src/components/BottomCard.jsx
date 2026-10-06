@@ -29,35 +29,61 @@ const initialBooks = [
     averageRating: null,
     createdAt: '2024-05-08T13:43:44.006Z',
     updatedAt: '2024-05-08T13:43:44.006Z'
+  },
+  {
+    _id: '65ed8cd838df668685b80ac3',
+    title: 'معاشياتِ اسلام',
+    description: 'Books By Syed Abul Ala Maududi',
+    isPublished: true,
+    isArabic: false,
+    author: {
+      _id: '65ba1bab57e3e988e6740cfb',
+      name: 'مولانا سید ابو الاعلیٰ مودودیؒ',
+      createdAt: '2024-01-31T10:06:35.438Z',
+      updatedAt: '2024-01-31T10:06:35.438Z',
+      __v: 0
+    },
+    coverPhotoUri: 'books/معاشياتِ اسلام_1710066904500/معاشياتِ اسلام.png',
+    fileUri: 'books/معاشياتِ اسلام_1710066904500/معاشياتِ اسلام.pdf',
+    chapters: [],
+    bookType: 'PDF',
+    category: {
+      _id: '65ba1bb257e3e988e6740cff',
+      name: 'Literature App Books',
+      createdAt: '2024-01-31T10:06:42.636Z',
+      updatedAt: '2024-02-06T12:41:15.502Z',
+      __v: 0
+    },
+    tags: [],
+    averageRating: null,
+    createdAt: '2024-03-10T10:35:04.755Z',
+    updatedAt: '2024-03-10T10:35:04.755Z'
   }
+ 
 ];
 
-export default function BookCardClone() {
-
+export default function BookCard() {
+  
   const baseUrl = 'http://159.65.157.115/';
   const [realBooks, setRealBooks] = useState(initialBooks);
 
   function loadAllBooks() {
     setRealBooks(initialBooks);
-    console.log('Load All Books — Total:', initialBooks.length, initialBooks);
   }
 
   function loadPdfBooks() {
     const pdfBooks = initialBooks.filter((book) => book.bookType === 'PDF');
     setRealBooks(pdfBooks);
-    console.log('PDF Books — Total:', pdfBooks.length, pdfBooks);
   }
 
   function loadUnicodeBooks() {
     const unicodeBooks = initialBooks.filter((book) => book.bookType === 'UNICODE');
     setRealBooks(unicodeBooks);
-    console.log('Unicode Books — Total:', unicodeBooks.length, unicodeBooks);
   }
 
   function loadAudioBooks() {
     const audioBooks = initialBooks.filter((book) => book.bookType === 'AUDIO');
     setRealBooks(audioBooks);
-    console.log('Audio Books — Total:', audioBooks.length, audioBooks);
   }
 
   function findBook() {
@@ -66,9 +92,15 @@ export default function BookCardClone() {
     setRealBooks(found ? [found] : []);
   }
 
+  function purchaseBook() {
+    
+  }
+
   return (
-    <section className="mt-6" aria-labelledby="books-title">
-      <div className="mb-6 flex flex-wrap items-center gap-3">
+
+    <section className="mt-6" aria-labelledby="books-title ">
+      
+      <div className="mb-6 flex flex-wrap items-center gap-3 ">
         <button
           type="button"
           onClick={loadAllBooks}
@@ -108,6 +140,16 @@ export default function BookCardClone() {
         >
           Find Book
         </button>
+
+
+       <button
+          type="button"
+          onClick={purchaseBook}
+          className="cursor-pointer rounded-lg bg-amber-500 px-4 py-2 font-semibold text-slate-900 shadow-md transition duration-150 hover:bg-amber-600 active:scale-95"
+        >
+          Purchase Book
+        </button>
+
       </div>
 
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">

@@ -1,4 +1,6 @@
+
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 
 const initialBooks = [
   {
@@ -184,34 +186,46 @@ const initialBooks = [
   }
 ];
 
-export default function BookCard() {
-  
+export default function BottomCard() {
+
+  const navigate = useNavigate();
+
   const baseUrl = 'http://159.65.157.115/';
   const [realBooks, setRealBooks] = useState(initialBooks);
 
   function loadAllBooks() {
-    setRealBooks(initialBooks);
+    // setRealBooks(initialBooks);
+    navigate('/');
   }
 
   function loadPdfBooks() {
-    const pdfBooks = initialBooks.filter((book) => book.bookType === 'PDF');
-    setRealBooks(pdfBooks);
+    // const pdfBooks = initialBooks.filter((book) => book.bookType === 'PDF');
+    // setRealBooks(pdfBooks);
+    navigate('/Login');
   }
 
   function loadUnicodeBooks() {
-    const unicodeBooks = initialBooks.filter((book) => book.bookType === 'UNICODE');
-    setRealBooks(unicodeBooks);
+    // const unicodeBooks = initialBooks.filter((book) => book.bookType === 'UNICODE');
+    // setRealBooks(unicodeBooks);
+    navigate('/Register');
   }
 
   function loadAudioBooks() {
-    const audioBooks = initialBooks.filter((book) => book.bookType === 'AUDIO');
-    setRealBooks(audioBooks);
+    // const audioBooks = initialBooks.filter((book) => book.bookType === 'AUDIO');
+    // setRealBooks(audioBooks);
+    navigate('/AudioBooks');
   }
 
   function findBook() {
     const found = initialBooks.find((book) => book.title === 'خطبات' || book.title === 'روزہ');
     console.log('Find Book:', found);
     setRealBooks(found ? [found] : []);
+  }
+
+  function purchaseBook() {
+
+    navigate('/register');
+  
   }
 
   return (
@@ -258,6 +272,16 @@ export default function BookCard() {
         >
           Find Book
         </button>
+
+
+       <button
+          type="button"
+          onClick={purchaseBook}
+          className="cursor-pointer rounded-lg bg-amber-500 px-4 py-2 font-semibold text-slate-900 shadow-md transition duration-150 hover:bg-amber-600 active:scale-95"
+        >
+          Purchase Book
+        </button>
+
       </div>
 
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
