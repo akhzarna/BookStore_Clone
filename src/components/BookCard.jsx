@@ -223,9 +223,7 @@ export default function BottomCard() {
   }
 
   function purchaseBook() {
-
-    navigate('/register');
-  
+    navigate('/login');
   }
 
   return (
@@ -286,6 +284,7 @@ export default function BottomCard() {
 
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {realBooks.map((book, index) => (
+          
           <article
             key={book._id ?? `${book.id}-${index}`}
             className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:shadow-md"
