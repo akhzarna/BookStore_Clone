@@ -266,7 +266,7 @@ export default function App() {
             />
 
 
-                 <BookCardClone />  
+            <BookCardClone />
 
             {/* Dynamic Section Header */}
             <div className="section-header">
