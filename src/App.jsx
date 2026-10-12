@@ -7,6 +7,7 @@ import Home from './components/Home';
 import BookCard from './components/BookCard';
 import BookCardClone from './components/BookCardClone';
 import FlexDemo from './components/FlexDemo';
+import HtmlFundamentals from './components/HtmlFundamentals';
 
 import './App.css';
 
@@ -35,6 +36,7 @@ export default function App() {
               <Link to="/BookCard"> Open Books </Link>
               <Link to="/book-card-clone"> Open Book Card Clone </Link>
               <Link to="/flex-demo"> Open Flexbox Demo </Link>
+              <Link to="/html-fundamentals"> Learn HTML & HTML5 </Link>
 
             </div>
 
@@ -46,6 +48,7 @@ export default function App() {
               <Route path="/BookCard" element={<BookCard />} />
               <Route path="/book-card-clone" element={<BookCardClone />} />
               <Route path="/flex-demo" element={<FlexDemo />} />
+              <Route path="/html-fundamentals" element={<HtmlFundamentals />} />
 
             </Routes>
           </BrowserRouter>
